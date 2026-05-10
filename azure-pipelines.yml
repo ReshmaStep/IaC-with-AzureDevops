@@ -48,4 +48,4 @@ steps:
     command: 'plan'
     environmentServiceNameAzureRM: 'devopsconnection'
     environmentAzureRmOverrideSubscriptionID: '92dda2f1-5e99-458f-b32b-2a8612c8a48f'
-    workingDirectory: '$(terraformWorkingDir)'
+    workingDirectory: '$(terraformWorkingDir)/env/dev'
