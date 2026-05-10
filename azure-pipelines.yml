@@ -43,9 +43,10 @@ steps:
     
 # Terraform Plan (Dev)
 - task: TerraformTask@5
+  displayName: "Terraform Plan -Dev"
   inputs:
     provider: 'azurerm'
     command: 'plan'
     environmentServiceNameAzureRM: 'devopsconnection'
     environmentAzureRmOverrideSubscriptionID: '92dda2f1-5e99-458f-b32b-2a8612c8a48f'
-    workingDirectory: '$(terraformWorkingDir)/env/dev'
+    workingDirectory: '$(terraformWorkingDir)'
