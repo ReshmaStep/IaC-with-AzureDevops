@@ -12,15 +12,25 @@ pool:
 variables:
    terraformWorkingDir: '$(Build.SourcesDirectory)/env/dev'
 
-stages:
+steps:
 
 # Plan Stage #
-  - stage: terraform init-plan
-    displayName: terraform init-plan
-    jobs:
-      - job: init-plan
-        steps:
-        - task: TerraformInstaller@1
-          inputs:
-            terraformVersion: 'latest'
+
+- task: TerraformInstaller@1
+  displayName: "Install Terraform"
+  inputs:
+    terraformVersion: 'latest'
+
+# Terraform Init (Dev)
+- task: TerraformTask@5
+  displayName: "Terraform Init-Dev"
+  inputs:
+    provider: 'azurerm'
+    command: 'init'
+    backendServiceArm: 'devopsconnection'
+    backendAzureRmOverrideSubscriptionID: '92dda2f1-5e99-458f-b32b-2a8612c8a48f'
+    backendAzureRmResourceGroupName: 'NCPL'
+    backendAzureRmStorageAccountName: 'dev2storageacount'
+    backendAzureRmContainerName: 'tfstate'
+    backendAzureRmKey: 'dev.terraform.tfstate'
          
