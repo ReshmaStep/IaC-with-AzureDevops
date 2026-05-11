@@ -9,11 +9,12 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
-
-
 steps:
+- checkout: self
 
-# Plan Stage #
+
+
+# Install Terraform #
 
 - task: TerraformInstaller@1
   displayName: "Install Terraform"
