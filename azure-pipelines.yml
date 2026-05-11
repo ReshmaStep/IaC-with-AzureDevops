@@ -9,8 +9,7 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
-variables:
-   terraformWorkingDir: '$(Build.SourcesDirectory)/env/dev'
+
 
 steps:
 
@@ -49,10 +48,6 @@ steps:
     command: 'plan'
     environmentServiceNameAzureRM: 'devopsconnection'
     environmentAzureRmOverrideSubscriptionID: '92dda2f1-5e99-458f-b32b-2a8612c8a48f'
-    workingDirectory: '$(terraformWorkingDir)'
+    workingDirectory: '$(Build.SourcesDirectory)/env/dev'
+    commandOptions: '-var-file=dev.tfvars'
 
-- task: PublishPipelineArtifact@1
-  displayName: Publish tfplan
-  inputs:
-    targetPath: '$(terraformWorkingDir))/tfplan'
-    artifact: tfplan
