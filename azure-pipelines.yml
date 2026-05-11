@@ -22,6 +22,7 @@ steps:
 
 # Terraform Init (Dev)
 - task: TerraformTask@5
+  displayName: 'Terraform Init'
   inputs:
     provider: 'azurerm'
     command: 'init'
@@ -36,6 +37,7 @@ steps:
 
 # Terraform validate
 - task: TerraformTask@5
+  displayName: 'Terrafrom Validate'
   inputs:
     provider: 'azurerm'
     command: 'validate'
@@ -53,6 +55,7 @@ steps:
 
 #Terrafrom Apply
 - task: TerraformTask@5
+  displayName: 'Terrafrom apply'
   inputs:
     provider: 'azurerm'
     command: 'apply'
