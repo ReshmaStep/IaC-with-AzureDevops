@@ -21,33 +21,12 @@ steps:
     terraformVersion: 'latest'
 
 # Terraform Init (Dev)
-- task: TerraformTask@5
-  displayName: "Terraform Init-Dev"
-  inputs:
-    provider: 'azurerm'
-    command: 'init'
-    backendServiceArm: 'devopsconnection'
-    backendAzureRmOverrideSubscriptionID: '92dda2f1-5e99-458f-b32b-2a8612c8a48f'
-    backendAzureRmResourceGroupName: 'NCPL'
-    backendAzureRmStorageAccountName: 'dev2storageacount'
-    backendAzureRmContainerName: 'tfstate'
-    backendAzureRmKey: 'dev.terraform.tfstate'
+
 
 # Terraform Validate
          
-- task: TerraformTask@5
-  inputs:
-    provider: 'azurerm'
-    command: 'validate'
+
     
 # Terraform Plan (Dev)
-- task: TerraformTask@5
-  displayName: "Terraform Plan -Dev"
-  inputs:
-    provider: 'azurerm'
-    command: 'plan'
-    environmentServiceNameAzureRM: 'devopsconnection'
-    environmentAzureRmOverrideSubscriptionID: '92dda2f1-5e99-458f-b32b-2a8612c8a48f'
-    workingDirectory: '$(Build.SourcesDirectory)/env/dev'
-    commandOptions: '-var-file=dev.tfvars'
+
 
