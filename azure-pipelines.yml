@@ -26,7 +26,7 @@ steps:
     provider: 'azurerm'
     command: 'init'
     workingDirectory: '$(Build.SourcesDirectory)/env/dev'
-    commandOptions: '-reconfigure'
+    
     backendServiceArm: 'devopsconnection'
     backendAzureRmOverrideSubscriptionID: '92dda2f1-5e99-458f-b32b-2a8612c8a48f'
     backendAzureRmResourceGroupName: 'NCPL'
