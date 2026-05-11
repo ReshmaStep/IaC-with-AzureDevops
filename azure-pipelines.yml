@@ -21,13 +21,6 @@ steps:
     terraformVersion: 'latest'
 
 # Terraform Init (Dev)
-
-
-# Terraform Validate
-         
-
-    
-# Terraform Plan (Dev)
 - task: TerraformTask@5
   inputs:
     provider: 'azurerm'
@@ -38,4 +31,14 @@ steps:
     backendAzureRmStorageAccountName: 'dev1storageacount'
     backendAzureRmContainerName: 'tfstate'
     backendAzureRmKey: 'dev.terraform.tfstate'
+
+# Terraform Validate
+- task: TerraformTask@5
+  inputs:
+    provider: 'azurerm'
+    command: 'validate'
+
+    
+# Terraform Plan (Dev)
+
 
