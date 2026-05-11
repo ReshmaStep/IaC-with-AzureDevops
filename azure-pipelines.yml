@@ -42,10 +42,12 @@ steps:
 
 #Terrafrom Plan
 - task: TerraformTask@5
+  displayName: 'Terrafrom plan'
   inputs:
     provider: 'azurerm'
     command: 'plan'
     environmentServiceNameAzureRM: 'devopsconnection'
     environmentAzureRmOverrideSubscriptionID: '92dda2f1-5e99-458f-b32b-2a8612c8a48f'
-
+    workingDirectory: '$(Build.SourcesDirectory)/env/dev'
+    commandOptions: '-var-file=dev.tfvars'
 
